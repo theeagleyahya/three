@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    @font-face {
+      font-family: "yahya";
+      src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+      font-weight: 500 800;
+      font-display: block;
+    }
+
+    body{
+      height: 100vh;
+      position: relative;
+    }
+
+    main{
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 560px;
+      height: fit-content;
+      border-radius: 20px;
+      box-shadow: 90px 65px 190px -100px hsl(241, 100%, 89%);
+    }
+
+    #secSummary{
+      float: right;
+      width: 280px;
+      padding: 30px;
+      border-radius: 0px 20px 20px 0px;
+
+    }
+
+    #secSummary > #summary{
+      font-size: 18px;
+      font-family: "yahya";
+      margin-bottom: 20px;
+      color: hsl(224, 30%, 27%);
+    }
+
+    #secSummary p{
+      width: 220px;
+      height: 40px;
+      border-radius: 7px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    #secSummary > #reaction{
+      color: hsl(0, 100%, 67%);
+      background-color: hsla(0, 100%, 67%, .06);
+    }
+
+    #secSummary > #reaction::before{
+      content: url(assets/images/icon-reaction.svg);
+      position: absolute;
+      height: 15px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto 0 auto 12.5px;
+    }
+
+    main span{
+      display: inline-block;
+      float: left;
+      line-height: 40px;
+      font-family: "yahya";
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    
+
+    #secSummary .right{
+      display: inline-block;
+      float: right;
+      padding-right: 10px;
+    }
+
+    #secSummary #name{
+      margin-left: 40px;
+    }
+
+    #secSummary #rateNow{
+      margin-left: 40px;
+      margin-right: 5px;
+      color: hsl(224, 30%, 27%);
+      float: ri;
+    }
+
+    #secSummary #rateMax{
+      color: hsla(224, 30%, 27%, .5);
+    }
+
+    #secSummary > #memory{
+      color: hsl(39, 100%, 56%);
+      background-color: hsla(39, 100%, 56%, .06);
+    }
+
+    #secSummary > #memory::before{
+      content: url(assets/images/icon-memory.svg);
+      position: absolute;
+      height: 15px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto 0 auto 12.5px;
+    }
+
+    #secSummary > #verbal{
+      color:hsl(166, 100%, 37%);
+      background-color: hsl(166, 100%, 37%, .06);
+    }
+
+    #secSummary > #verbal::before{
+      content: url(assets/images/icon-verbal.svg);
+      position: absolute;
+      height: 15px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto 0 auto 12.5px;
+    }
+
+    #secSummary > #visual{
+      color:hsl(234, 85%, 45%);
+      background-color: hsl(234, 85%, 45%, .06);
+    }
+
+    #secSummary > #visual::before{
+      content: url(assets/images/icon-visual.svg);
+      position: absolute;
+      height: 15px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto 0 auto 12.5px;
+    }
+
+    #secSummary a{
+      text-align: center;
+      background-color: hsl(224, 30%, 27%);
+      width: 220px;
+      height: 40px;
+      line-height: 40px;
+      text-decoration: none;
+      display: inline-block;
+      color: hsl(0, 0%, 100%);
+      border-radius: 30px;
+      margin-top: 20px;
+    }
+
+    #secSummary a:hover{
+      background-color: hsl(241, 81%, 54%);
+    }
+
+    #secResult{
+      float: left;
+      width: 280px;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid;
+      background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    }
+
+    #secResult > #result{
+      font-size: 18px;
+      font-family: "yahya";
+      margin-bottom: 20px;
+      color: hsl(241, 100%, 89%);
+      width: 220px;
+      text-align: center;
+    }
+
+    #secResult #firstSec{
+      width: 150px;
+      height: 150px;
+      margin-left: 35px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-image: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    }
+
+    #firstSec #first{
+      font-family: "yahya";
+      font-weight: 800;
+      font-size: 4rem;
+      color: hsl(0, 0%, 100%);
+    }
+
+    #firstSec #second{
+      font-family: "yahya";
+      font-size: 15px;
+      margin-top: -7px;
+      color: hsla(241, 100%, 89%, .6);
+    }
+
+    #secondSec{
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    #secondSec #first{
+      font-family: "yahya";
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: hsl(221, 100%, 96%);
+    }
+
+    #secondSec #second{
+      font-family: "yahya";
+      font-size: 15px;
+      color: hsl(241, 100%, 89%);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 375px){
+      main{
+        width: 280px;
+        box-shadow: 0px 0px 0px 0px;
+        float: none;
+      }
+
+     #secResult{
+      width: 280px;
+     }
+
+
+      
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <section id="secResult">
+      <h1 id="result">Your Result</h1>
+      <section id="firstSec">
+        <p id="first">76</p>
+        <P id="second">of 100</P>
+      </section>
+
+      <section id="secondSec">
+        <p id="first">Great</p>
+        <P id="second">
+          You scored higher then 65% of the people
+          who have taken these tests
+        </P>
+      </section>
+    </section>
+
+
+    <section id="secSummary">
+      <h1 id="summary">Summary</h1>
+      <p id="reaction">
+        <span id="name">Reaction</span>
+        <span class="right">
+          <span id="rateNow">80</span>
+          <span id="rateMax">/ 100</span>
+        </span>
+      </p>
+
+      <p id="memory">
+        <span id="name">Memory</span>
+        <span class="right">
+          <span id="rateNow">80</span>
+          <span id="rateMax">/ 100</span>
+        </span>
+      </p>
+
+      <p id="verbal">
+        <span id="name">Verbal</span>
+        <span class="right">
+          <span id="rateNow">80</span>
+          <span id="rateMax">/ 100</span>
+        </span>
+      </p>
+
+      <p id="visual">
+        <span id="name">Visual</span>
+        <span class="right">
+          <span id="rateNow">80</span>
+          <span id="rateMax">/ 100</span>
+        </span>
+      </p>
+
+      <a href="#">Continue</a>
+    </section>
+  </main>
+</body>
+</html>
